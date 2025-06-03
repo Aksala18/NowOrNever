@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NowOrNever</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBf4Y4TFzjAj0oHdIHz30ukGsvIfJLfiss",
+    authDomain: "nowornever-18.firebaseapp.com",
+    databaseURL: "https://nowornever-18-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "nowornever-18",
+    storageBucket: "nowornever-18.firebasestorage.app",
+    messagingSenderId: "129692418076",
+    appId: "1:129692418076:web:916564b1d2da06acd35fd9",
+    measurementId: "G-GH3N98QEQV"
+  };
+
+  // Initialize Firebase and make it globally available
+  window.firebaseApp = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(window.firebaseApp);
+</script>
+<div class="container">
+    <h1>NowOrNever</h1>
+
+    <div id="menu">
+      <div class="main-grid">
+        <!-- Create Calendar Section -->
+        <div class="glass-box">
+          <h2>Create new calendar:</h2>
+          
+          <div class="form-group">
+            <input type="text" id="calendarName" placeholder="Title" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Select Months:</label>
+            <div id="monthCheckboxes" class="checkbox-grid">
+              <div class="checkbox-item">
+                <input type="checkbox" value="1" id="month1" />
+                <label for="month1">January</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" value="2" id="month2" />
+                <label for="month2">February</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" value="3" id="month3" />
+                <label for="month3">March</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" value="4" id="month4" />
+                <label for="month4">April</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" value="5" id="month5" />
+                <label for="month5">May</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" value="6" id="month6" />
+                <label for="month6">June</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" value="7" id="month7" />
+                <label for="month7">July</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" value="8" id="month8" />
+                <label for="month8">August</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" value="9" id="month9" />
+                <label for="month9">September</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" value="10" id="month10" />
+                <label for="month10">October</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" value="11" id="month11" />
+                <label for="month11">November</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" value="12" id="month12" />
+                <label for="month12">December</label>
+              </div>
+            </div>
+          </div>
+
+          <button id="createCalendarBtn" class="btn">Create</button>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Join Calendar Section -->
+        <div class="glass-box">
+          <h2>Enter calendar</h2>
+          
+          <div class="form-group">
+            <input type="text" id="calendarIdInput" placeholder="Calendar ID" />
+          </div>
+
+          <button id="joinCalendarBtn" class="btn">Enter</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="calendarApp" class="glass-box" style="display:none;">
+      <div class="calendar-header">
+        <h2 id="calendarTitle"></h2>
+        <p id="calendarId" class="calendar-id"></p>
+      </div>
+
+      <div class="user-info">
+        <div class="user-input-group">
+          <label class="form-label" for="userNameInput">Your name:</label>
+          <input type="text" id="userNameInput" placeholder="Escreve o teu nome" />
+        </div>
+
+        <div class="color-input-group">
+          <label class="form-label" for="userColorInput">Choose your color:</label>
+          <input type="color" id="userColorInput" value="#f94144" />
+        </div>
+      </div>
+
+      <div id="calendarContainer"></div>
+
+      <div class="actions">
+        <button id="saveSelectionsBtn" class="btn secondary">Save Calendar</button>
+        <button id="backToMenuBtn" class="btn secondary">Back to Menu</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

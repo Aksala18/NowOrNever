@@ -1,0 +1,437 @@
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: linear-gradient(180deg, #f0f2f0 0%, #000c40 100%);
+      min-height: 100vh;
+      color: #333;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ========== TYPOGRAPHY ========== */
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      margin-top: -20px;
+      font-size: 4rem;
+      font-weight: 300;
+      color: #000c40;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #2c3e50;
+      letter-spacing: 1px;
+    }
+
+    /* ========== GLASSMORPHISM BOXES ========== */
+    .glass-box {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      padding: 40px;
+      margin-bottom: 40px;
+      transition: all 0.3s ease;
+    }
+
+    .glass-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 40px;
+      align-items: center; /* Changed from center to start */
+    }
+
+    .divider {
+      width: 2px;
+      height: 600px; /* Reduced from 600px */
+      background: linear-gradient(to bottom, 
+        transparent 0%, 
+        rgba(255,255,255,0.3) 20%, 
+        rgba(255,255,255,0.3) 80%, 
+        transparent 100%);
+      margin: 20px 0;
+    }
+
+    /* ========== FORM CONTROLS ========== */
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 12px;
+      font-weight: 500;
+      color: #2c3e50;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      border: none;
+      border-radius: 16px;
+      padding: 16px 20px;
+      font-size: 1.1rem;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+      color: #2c3e50;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.95);
+      border-color: rgba(179, 192, 249, 0.5);
+      box-shadow: 0 0 20px rgba(39, 55, 126, 0.295);
+      transform: scale(1.02);
+    }
+
+    input[type="text"]::placeholder {
+      color: rgba(44, 62, 80, 0.6);
+    }
+
+    input[type="color"] {
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: none;
+      transition: transform 0.2s ease;
+    }
+
+    input[type="color"]:hover {
+      transform: scale(1.1);
+    }
+
+    /* ========== BUTTONS ========== */
+    .btn {
+      background: linear-gradient(135deg, #000c40 0%, #8592a8 100%);
+      color: white;
+      border: none;
+      border-radius: 16px;
+      padding: 16px 32px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 10px 25px rgba(30, 60, 114, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(30, 60, 114, 0.4);
+      background: linear-gradient(135deg, #8592a8 0%, #000c40 100%);
+    }
+
+    .btn:active {
+      transform: translateY(-1px);
+    }
+
+    .btn.secondary {
+      background: linear-gradient(135deg, #8592a8 0%, #000c40 100%);
+      box-shadow: 0 10px 25px rgba(149, 165, 166, 0.3);
+    }
+
+    .btn.secondary:hover {
+      background: linear-gradient(135deg, #8592a8 0%, #000c40 100%);
+      box-shadow: 0 15px 35px rgba(149, 165, 166, 0.4);
+    }
+
+    /* ========== MONTH CHECKBOXES ========== */
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 20px 0 30px;
+    }
+
+    .checkbox-item {
+      position: relative;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      display: none;
+    }
+
+    .checkbox-item label {
+      display: block;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      font-weight: 500;
+      color: #2c3e50;
+      border: 2px solid transparent;
+    }
+
+    .checkbox-item label:hover {
+      background: rgba(255, 255, 255, 0.8);
+      transform: translateY(-2px);
+    }
+
+    .checkbox-item input[type="checkbox"]:checked + label {
+      background: linear-gradient(135deg, #000c40 0%, #8592a8 100%);
+      color: white;
+      border-color: white;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    
+
+    /* ========== CALENDAR HEADER ========== */
+    .calendar-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .calendar-header h2 {
+      margin-bottom: 10px;
+    }
+
+    .calendar-id {
+      font-size: 1.1rem;
+      color: #666;
+      font-weight: 500;
+      letter-spacing: 2px;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 8px 16px;
+      border-radius: 12px;
+      display: inline-block;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    /* ========== CALENDAR STYLING ========== */
+    #calendarContainer h3 {
+      margin: 40px 0 20px;
+      font-size: 2rem;
+      color: #2c3e50;
+      text-transform: capitalize;
+      text-align: center;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    .month-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      margin-bottom: 40px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      max-width: 500px; /* Limit maximum width */
+      margin-left: auto; /* Center the grid */
+      margin-right: auto; /* Center the grid */
+    }
+
+    .day {
+      aspect-ratio: 1;
+      max-width: 50px;
+      max-height: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      color: #2c3e50;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .day::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .day:hover::before {
+      left: 100%;
+    }
+
+    .day:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-color: #000c40;
+    }
+
+    .day.selected {
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* ========== USER INFO SECTION ========== */
+    .user-info {
+      display: flex; /* Changed from grid to flex */
+      gap: 20px;
+      align-items: flex-end; /* Changed from 'end' to 'flex-end' */
+      margin-bottom: 30px;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      flex-wrap: wrap; /* Allow wrapping on smaller screens */
+      max-width: 70%;
+      margin-left: auto; /* Center the container */
+      margin-right: auto; /* Center the container */
+    }
+
+    .user-input-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1; /* Take available space but don't grow excessively */
+      min-width: 200px; /* Set a reasonable minimum width */
+      max-width: 300px; /* Set a maximum width to prevent it from being too long */
+    }
+
+    .color-input-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0; /* Don't shrink */
+      margin-left: 20%;
+      border-radius: 12px;
+    }
+
+    /* ========== ACTIONS ========== */
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px; /* Reduced from 20px */
+      flex-wrap: wrap;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 968px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .divider {
+        display: none;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .checkbox-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px 15px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+      }
+
+      .glass-box {
+        padding: 25px;
+      }
+
+      .checkbox-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .user-info {
+        flex-direction: column; /* Stack vertically on mobile */
+        text-align: center;
+      }
+
+      .user-input-group {
+        max-width: none; /* Remove max-width on mobile */
+      }
+
+      .actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Even smaller gap on mobile */
+      }
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .glass-box {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .glass-box:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .glass-box:nth-child(3) {
+      animation-delay: 0.2s;
+    }
