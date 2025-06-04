@@ -52,12 +52,6 @@
       return result;
     }
 
-    function saveCalendar() {
-      if (!currentCalendar) return;
-      calendarsStorage[currentCalendar.id] = JSON.parse(JSON.stringify(currentCalendar));
-      console.log("Calendar saved:", currentCalendar.id, currentCalendar);
-    }
-
     async function loadCalendar(id) {
     const dbRef = window.firebase.ref(window.firebase.db);
     try {
